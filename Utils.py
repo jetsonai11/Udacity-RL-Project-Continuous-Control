@@ -5,9 +5,6 @@ from collections import namedtuple, deque
 import random
 import torch
 
-ou_sigma = 0.2          # Ornstein-Uhlenbeck noise parameter
-ou_theta = 0.15         # Ornstein-Uhlenbeck noise parameter
-
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 class OUNoise:
@@ -15,7 +12,7 @@ class OUNoise:
     Define an Ornstein-Ulhenbeck Process for exploration purpose
     
     """
-    def __init__(self, size, seed, mu=0., theta=ou_theta, sigma=ou_sigma):
+    def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.2):
         """
         Initialize parameters and noise process.
         
@@ -29,6 +26,7 @@ class OUNoise:
         self.mu = mu * np.ones(size)
         self.theta = theta
         self.sigma = sigma
+        self.size = size
         self.seed = random.seed(seed)
         self.reset()
 
@@ -45,8 +43,9 @@ class OUNoise:
         
         """
         x = self.state
-        dx = self.theta * (self.mu - x) + self.sigma * np.array([random.random() for i in range(len(x))])
+        dx = self.theta * (self.mu - x) + self.sigma * np.random.standard_normal(self.size)
         self.state = x + dx
+        
         return self.state
         
         
