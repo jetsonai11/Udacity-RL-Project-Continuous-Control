@@ -12,9 +12,14 @@ For this project, you will work with the [Reacher](https://github.com/Unity-Tech
 
 ![Trained Agent][image1]
 
-In this environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.
+#### The Environment
 
-The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
+You will solve an environment by training agent(s) which is/are double-jointed arm(s) that can move to target locations. The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
+
+#### Calculating Rewards
+
+A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.
+
 
 ### Distributed Training
 
@@ -102,7 +107,7 @@ python -m ipykernel install --user --name drlnd --display-name "drlnd"
 
 ### Instructions
 
-Follow the instructions in `Continuous_Control.ipynb` to get started with training your own agent!  
+Follow the instructions in `Continuous_Control.ipynb` to get started with training your own agent! Inside the folder, a pre-trained set of weights for each the actor network and the critic network had already been saved as `solved_actor_checkpoint.pth` and `solved_critic_checkpoint.pth`. Simply follow the code to load in the weights and watch the agent perform if you don't want to spend time training the agent. Feel free to make edits to my code to improve the agent's performance!
 
 ### (Optional) Challenge: Crawler Environment
 
@@ -124,3 +129,7 @@ Then, place the file in the `p2_continuous-control/` folder in the DRLND GitHub 
 
 (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Crawler/Crawler_Linux_NoVis.zip) to obtain the "headless" version of the environment.  You will **not** be able to watch the agent without enabling a virtual screen, but you will be able to train the agent.  (_To watch the agent, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
 
+### Results
+If you decide to train the agent yourself, you will be able to solve the task in 175 episodes by using the base implementation code that I have provided. A plot of the rewards should look like this:
+
+![](images/R.png)
