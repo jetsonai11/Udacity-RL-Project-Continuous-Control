@@ -107,7 +107,7 @@ python -m ipykernel install --user --name drlnd --display-name "drlnd"
 
 ### Instructions
 
-Follow the instructions in `Continuous_Control.ipynb` to get started with training your own agent!  
+Follow the instructions in `Continuous_Control.ipynb` to get started with training your own agent! Inside the folder, a pre-trained set of weights for each the actor network and the critic network had already been saved as `solved_actor_checkpoint.pth` and `solved_critic_checkpoint.pth`. Simply follow the code to load in the weights and watch the agent perform if you don't want to spend time training the agent. Feel free to make edits to my code to improve the agent's performance!
 
 ### (Optional) Challenge: Crawler Environment
 
